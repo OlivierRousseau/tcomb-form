@@ -66,11 +66,11 @@
   ],
   "jspm": {
     "registry": "github",
+    "main": "index",
     "files": [
       "index.js",
       "lib"
     ],
-    "main": "./tcomb-form",
     "dependencies": {
       "classnames": "^1.2.0",
       "debug": "^2.1.1",
