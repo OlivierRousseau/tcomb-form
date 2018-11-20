@@ -63,5 +63,19 @@
     "generation",
     "react",
     "react-component"
-  ]
+  ],
+  "jspm": {
+    "registry": "github",
+    "main": "index.js",
+    "dependencies": {
+      "classnames": "^1.2.0",
+      "debug": "^2.1.1",
+      "uvdom": "^0.1.2",
+      "uvdom-bootstrap": "^0.2.3"
+    },
+    "peerDependencies": {
+      "react": "^0.13.0",
+      "tcomb-validation": "^1.0.4"
+    }
+  }
 }
