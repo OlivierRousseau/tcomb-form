@@ -65,7 +65,7 @@
     "react-component"
   ],
   "jspm": {
-    "registry": "github",
+    "registry": "npm",
     "main": "index",
     "files": [
       "index.js",
