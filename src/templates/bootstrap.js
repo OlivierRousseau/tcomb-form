@@ -442,6 +442,10 @@ var months = nullOption.concat(range(12).map(function (i) {
   return toOption(i - 1, padLeft(i, 2));
 }));
 
+var years = nullOption.concat(rangeWitStart(20, 2015).map(function (i) {
+  return toOption(i, i);
+}));
+
 export function date(locals) {
 
   const config = new DateConfig(locals.config || noobj);
@@ -458,7 +462,7 @@ export function date(locals) {
   }
 
   function onYearChange(evt) {
-    value[0] = evt.target.value.trim() === '' ? null : evt.target.value.trim();
+    value[0] = evt.target.value.trim() === '' ? null : evt.target.value;
     locals.onChange(value);
   }
 
@@ -506,11 +510,9 @@ export function date(locals) {
       tag: 'li',
       key: 'YY',
       children: {
-        tag: 'input',
+        tag: 'select',
         attrs: {
           disabled: locals.disabled,
-          type: 'text',
-          size: 5,
           className: {
             'form-control': true
           },
@@ -518,7 +520,8 @@ export function date(locals) {
         },
         events: {
           change: onYearChange
-        }
+        },
+        children: years
       }
     }
 
@@ -528,7 +531,7 @@ export function date(locals) {
     tag: 'ul',
     attrs: {
       className: {
-        'nav nav-pills': true
+        'nav nav-pills date-select': true
       }
     },
     children: locals.order.map(function (id) {
